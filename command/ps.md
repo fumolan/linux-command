@@ -102,6 +102,7 @@ ps -e -o pid,uname=USERNAME,pcpu=CPU_USAGE,pmem,comm # 重定义标签
 ps -e -o pid,comm,etime # 显示进程运行的时间
 ps -aux | grep named # 查看named进程详细信息
 ps -o command -p 91730 | sed -n 2p # 通过进程id获取服务名称
+ps -p <pid> -o stime,etime  # # 获取当前进程的运行时间
 ```
 
 将目前属于您自己这次登入的 PID 与相关信息列示出来
@@ -183,6 +184,11 @@ ps aux | egrep '(cron|syslog)'
 
 ```shell
 ps -aux > ps001.txt
+```
+
+获取当前进程的执行时间
+```shell
+ps -p 25137 -o -stime,etime
 ```
 
 输出指定的字段
